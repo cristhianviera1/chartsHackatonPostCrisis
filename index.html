@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Gráficos - Hackaton PostCrisis</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
     <!-- ChartJs library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- Percentage -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.4.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -26,6 +31,7 @@
     <!-- Json variables -->
     <script src="json/inscripciones.js"></script>
     <script src="json/registroDeMentores.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -75,8 +81,7 @@
                 </div>
                 <!-- Segundo gráfico de pastel -->
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href=""
-                        onclick="changeActiveChart('chartSharedEvent','sharedEvent',true)">
+                    <a class="portfolio-box" href="" onclick="changeActiveChart('chartSharedEvent','sharedEvent',true)">
                         <div id="screenchartSharedEvent"></div>
 
                         <canvas id="chartSharedEvent" width="100%" height="100%"></canvas>
@@ -92,7 +97,8 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLongTitle">Alcance de redes
                                 </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="changeActiveChart('chartSharedEvent','sharedEvent',false)">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    onclick="changeActiveChart('chartSharedEvent','sharedEvent',false)">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -108,42 +114,156 @@
                 </div>
 
 
+                <!-- Tercer gráfico -->
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="" onclick="changeActiveChart('chartStudyField','studyField',true)">
 
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg"><img class="img-fluid"
-                            src="assets/img/portfolio/thumbnails/3.jpg" alt="" />
+                        <div id="screenchartStudyField"></div>
+
+                        <canvas id="chartStudyField" width="100%" height="100%"></canvas>
                         <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">Project Name</div>
+                            <div class="project-name">Alcance de redes</div>
                         </div>
                     </a>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="studyField" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Campo de estudio o interés
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    onclick="changeActiveChart('chartStudyField','studyField',false)">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="replacechartStudyField"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="changeActiveChart('chartStudyField','studyField',false)">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-center mt-0" style="padding-top: 5%;">Mentores</h2>
+            <hr class="divider my-4" />
+            <div class="row no-gutters">
+
+                <!--Cuarto Gráfico-->
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg"><img class="img-fluid"
-                            src="assets/img/portfolio/thumbnails/4.jpg" alt="" />
+                    <a class="portfolio-box" href=""
+                        onclick="changeActiveChart('chartStageHackaton','stageHackaton',true)">
+
+                        <div id="screenchartStageHackaton"></div>
+
+                        <canvas id="chartStageHackaton" width="100%" height="100%"></canvas>
                         <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">Project Name</div>
+                            <div class="project-name">Etapas del Hackaton a colaborar</div>
                         </div>
                     </a>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="stageHackaton" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Etapas del Hackaton a colaborar
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    onclick="changeActiveChart('chartStageHackaton','stageHackaton',false)">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="replacechartStageHackaton"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="changeActiveChart('chartStageHackaton','stageHackaton',false)">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Quinto Gráfico-->
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg"><img class="img-fluid"
-                            src="assets/img/portfolio/thumbnails/5.jpg" alt="" />
+                    <a class="portfolio-box" href="" onclick="changeActiveChart('chartKnowledge','knowledge',true)">
+
+                        <div id="screenchartKnowledge"></div>
+
+                        <canvas id="chartKnowledge" width="100%" height="100%"></canvas>
                         <div class="portfolio-box-caption">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">Project Name</div>
+                            <div class="project-name">Conocimientos a disposición</div>
                         </div>
                     </a>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="knowledge" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Conocimientos a disposición
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    onclick="changeActiveChart('chartKnowledge','knowledge',false)">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="replacechartKnowledge"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="changeActiveChart('chartKnowledge','knowledge',false)">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Sexto Gráfico-->
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg"><img class="img-fluid"
-                            src="assets/img/portfolio/thumbnails/6.jpg" alt="" />
-                        <div class="portfolio-box-caption p-3">
-                            <div class="project-category text-white-50">Category</div>
-                            <div class="project-name">Project Name</div>
+                    <a class="portfolio-box" href="" onclick="changeActiveChart('chartTimeAvaialable','timeAvailable',true)">
+
+                        <div id="screenchartTimeAvaialable"></div>
+
+                        <canvas id="chartTimeAvaialable" width="100%" height="100%"></canvas>
+                        <div class="portfolio-box-caption">
+                            <div class="project-name">Conocimientos a disposición</div>
                         </div>
                     </a>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="timeAvailable" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Conocimientos a disposición
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                    onclick="changeActiveChart('chartTimeAvaialable','timeAvailable',false)">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="replacechartTimeAvaialable"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    onclick="changeActiveChart('chartTimeAvaialable','timeAvailable',false)">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
